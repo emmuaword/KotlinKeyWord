@@ -43,7 +43,7 @@ object KeyWordTest {
     }
 
     private fun testLet() {
-        var name = testBean?.let {
+        var name: String? = testBean?.let {
             it.function1()
             it.function2()
             it.name = "李四"
@@ -52,7 +52,7 @@ object KeyWordTest {
     }
 
     private fun testAlso() {
-        var entity = testBean?.also {
+        var entity: TestBean? = testBean?.also {
             it.function1()
             it.function2()
             it.name = "李四"
@@ -65,7 +65,7 @@ object KeyWordTest {
                 function1()
                 function2()
             }
-            var info: String = with(testBean!!) {
+            var info = with(testBean!!) {
                 "name:$name,age:$age"
             }
 //            info = "name:${testBean!!.name},age:$${testBean!!.age}"
