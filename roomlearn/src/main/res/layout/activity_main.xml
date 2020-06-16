@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.weiyi.roomlearn.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:hint="名字" />
+
+            <EditText
+                android:id="@+id/et_age"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:hint="年龄" />
+
+            <EditText
+                android:id="@+id/et_sex"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:hint="性别" />
+
+            <EditText
+                android:id="@+id/et_location"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:hint="地址" />
+
+            <EditText
+                android:id="@+id/et_idcard"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:hint="身份证" />
+
+            <EditText
+                android:id="@+id/et_marriage"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:hint="婚姻状况" />
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#2196F3"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/tv_query"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:background="#2196F3"
+                android:gravity="center"
+                android:text="查询"
+                android:textColor="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_del_age"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:background="#2196F3"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="删除"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/del_age"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:hint="年龄" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="所有人信息"
+                android:text="@{viewModel.persons.toString()}" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
