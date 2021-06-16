@@ -1,25 +1,35 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "params.gradle"
+
+apply plugin: 'com.alibaba.arouter'
+
 buildscript {
-    ext.kotlin_version = '1.5.10'
+//    ext.kotlin_version = '1.5.10'
     repositories {
-        google()
         jcenter()
+        mavenCentral() // add repository
+        google()
+        maven { url 'https://developer.huawei.com/repo/'}
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10"
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        //ARouter
+        classpath "com.alibaba:arouter-register:1.0.2"
     }
 }
 
 allprojects {
     repositories {
+        jcenter()
+        mavenCentral() // add repository
         google()
-        mavenCentral()
-        
+        maven { url 'https://developer.huawei.com/repo/'}
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://jitpack.io' }
     }
 }
 

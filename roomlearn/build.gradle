@@ -54,7 +54,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 //    implementation project(path: ':base')
 
     //********协程*********
