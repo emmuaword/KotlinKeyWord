@@ -1,4 +1,4 @@
-package com.weiyi.kotlinkeyword.entity;
+package com.weiyi.funmain.entity;
 
 import android.util.Log;
 

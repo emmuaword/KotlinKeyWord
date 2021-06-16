@@ -1,6 +1,4 @@
-package com.weiyi.kotlinkeyword;
-
-import org.jetbrains.annotations.NotNull;
+package com.weiyi.funmain;
 
 /**
  * @author TW

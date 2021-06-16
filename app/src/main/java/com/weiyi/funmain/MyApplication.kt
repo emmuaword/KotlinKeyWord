@@ -1,4 +1,4 @@
-package com.weiyi.kotlinkeyword
+package com.weiyi.funmain
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter

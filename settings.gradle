@@ -4,3 +4,5 @@ include ':lock'
 include ':roomlearn'
 rootProject.name='KotlinKeyWord'
 
+include ':basemodule'
+include ':routertest'

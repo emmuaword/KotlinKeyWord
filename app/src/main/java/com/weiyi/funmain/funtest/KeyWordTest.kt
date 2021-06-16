@@ -1,7 +1,7 @@
-package com.weiyi.kotlinkeyword.funtest
+package com.weiyi.funmain.funtest
 
-import com.weiyi.kotlinkeyword.CallBack
-import com.weiyi.kotlinkeyword.entity.TestBean
+import com.weiyi.funmain.CallBack
+import com.weiyi.funmain.entity.TestBean
 
 /**
  * @author TW

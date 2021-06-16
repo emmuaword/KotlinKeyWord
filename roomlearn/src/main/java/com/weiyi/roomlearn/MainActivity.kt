@@ -4,12 +4,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.learn.basemodule.config.RoomLearnMain
 import com.weiyi.roomlearn.databinding.ActivityMainBinding
 import com.weiyi.roomlearn.entity.Person
 import com.weiyi.roomlearn.entity.PersonMessage
 import com.weiyi.roomlearn.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
+@Route(path = RoomLearnMain)
 class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
@@ -22,7 +25,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initParams() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mainViewModel = ViewModelProvider(this, MainViewModel.MainModelFactory(application)).get(MainViewModel::class.java)
+        mainViewModel = ViewModelProvider(
+            this,
+            MainViewModel.MainModelFactory(application)
+        ).get(MainViewModel::class.java)
         binding.apply {
             viewModel = mainViewModel
             lifecycleOwner = this@MainActivity
@@ -53,11 +59,13 @@ class MainActivity : AppCompatActivity() {
             } else {
                 1
             }
-            var message = PersonMessage(if ("已婚" == et_marriage.text.toString().trim()) {
-                "已婚"
-            } else {
-                "未婚"
-            })
+            var message = PersonMessage(
+                if ("已婚" == et_marriage.text.toString().trim()) {
+                    "已婚"
+                } else {
+                    "未婚"
+                }
+            )
             person.message1 = message
             mainViewModel.createRecord(person)
         }
@@ -65,11 +73,13 @@ class MainActivity : AppCompatActivity() {
             mainViewModel.notifyPersons()
         }
         tv_del_age.setOnClickListener {
-            mainViewModel.deleteAge(if (del_age.text.isNullOrEmpty()) {
-                0
-            } else {
-                del_age.text.toString().toInt()
-            })
+            mainViewModel.deleteAge(
+                if (del_age.text.isNullOrEmpty()) {
+                    0
+                } else {
+                    del_age.text.toString().toInt()
+                }
+            )
         }
     }
 
