@@ -8,4 +8,6 @@ package com.learn.basemodule.config
  */
 const val AppMainSecond = "/appmain/second"
 
-const val RoomLearnMain = "/roomlearn/mainactivity"
+const val RouteTestMain2 = "/main/test2"
+
+const val WebviewActivity = "/test/webview"

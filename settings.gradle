@@ -1,7 +1,7 @@
 include ':app'
 include ':simpleresult'
 include ':lock'
-include ':roomlearn'
+//include ':roomlearn'
 rootProject.name='KotlinKeyWord'
 
 include ':basemodule'

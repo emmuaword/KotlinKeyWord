@@ -1,6 +1,6 @@
 package com.weiyi.funmain.funtest
 
-import com.weiyi.funmain.CallBack
+import com.weiyi.funmain.callback.CallBack
 import com.weiyi.funmain.entity.TestBean
 
 /**
@@ -31,7 +31,11 @@ object KeyWordTest {
 //            }
 //
 //        })
-        testBean?.setListener(CallBack { data -> println(data) })
+        testBean?.setListener(CallBack { data ->
+            println(
+                data
+            )
+        })
 
     }
 

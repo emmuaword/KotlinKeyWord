@@ -1,6 +1,6 @@
 package com.weiyi.funmain.entity
 
-import com.weiyi.funmain.CallBack
+import com.weiyi.funmain.callback.CallBack
 
 /**
  * @author TW
@@ -20,7 +20,7 @@ class TestBean {
         println("function2\n")
     }
 
-    fun setListener(listener:CallBack){
+    fun setListener(listener: CallBack){
         listener.getData("李四")
     }
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
+import com.learn.basemodule.config.RouteTestMain2
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     fun jumptest(view: View) {
         ARouter.getInstance()
-            .build("/main/test")
+            .build(RouteTestMain2)
             .navigation()
     }
 }
