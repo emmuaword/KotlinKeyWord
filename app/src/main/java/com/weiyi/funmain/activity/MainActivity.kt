@@ -7,10 +7,11 @@ import androidx.activity.ComponentActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.learn.basemodule.config.*
 import com.weiyi.funmain.R
+import com.learn.routertest.TestBean
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : ComponentActivity() {
-
+    val testBean = TestBean(name = "李四", age = 32, childOne = TestBean.ChildOne(args = "李四儿"))
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +22,7 @@ class MainActivity : ComponentActivity() {
             .build(RouteTestMain2)
             .withString(PARAM_ONE, "参数1")
             .withInt(PARAM_TWO, 1)
+            .withSerializable(CUSTOM_OBJ, testBean)
             .navigation(this, INTENT_SUCCESS_CODE)
     }
 

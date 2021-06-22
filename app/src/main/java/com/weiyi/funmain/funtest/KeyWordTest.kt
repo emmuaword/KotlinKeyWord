@@ -1,7 +1,7 @@
 package com.weiyi.funmain.funtest
 
-import com.weiyi.funmain.callback.CallBack
-import com.weiyi.funmain.entity.TestBean
+import com.learn.routertest.CallBack
+import com.learn.routertest.TestBean
 
 /**
  * @author TW

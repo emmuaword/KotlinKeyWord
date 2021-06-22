@@ -2,6 +2,8 @@ package com.weiyi.funmain.entity;
 
 import android.util.Log;
 
+import com.learn.routertest.TestBean;
+
 /**
  * @author TW
  * @date 2020/6/1 15:29

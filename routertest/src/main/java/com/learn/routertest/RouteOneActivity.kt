@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.learn.basemodule.config.RouteTestMain2
 
-class MainActivity : AppCompatActivity() {
+class RouteOneActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

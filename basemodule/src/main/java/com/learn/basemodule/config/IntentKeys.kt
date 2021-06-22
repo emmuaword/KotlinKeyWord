@@ -15,3 +15,5 @@ const val INTENT_SUCCESS_CODE = 1000
 
 
 const val URL = "url"
+
+const val CUSTOM_OBJ = "custom_object"
