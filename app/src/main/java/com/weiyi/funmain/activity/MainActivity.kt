@@ -6,8 +6,8 @@ import android.view.View
 import androidx.activity.ComponentActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.learn.basemodule.config.*
-import com.weiyi.funmain.R
 import com.learn.routertest.TestBean
+import com.weiyi.funmain.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : ComponentActivity() {
@@ -30,6 +30,12 @@ class MainActivity : ComponentActivity() {
         ARouter.getInstance()
             .build(WebviewActivity)
             .withString(URL, "file:///android_asset/test.html")
+            .navigation()
+    }
+
+    fun flutterJump(view: View) {
+        ARouter.getInstance()
+            .build(AppMainSecond)
             .navigation()
     }
 

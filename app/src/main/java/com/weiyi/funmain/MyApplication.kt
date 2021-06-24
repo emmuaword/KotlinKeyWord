@@ -2,6 +2,7 @@ package com.weiyi.funmain
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
+import me.jessyan.autosize.AutoSize
 
 /**
  * @author: tw

@@ -6,3 +6,8 @@ rootProject.name='KotlinKeyWord'
 
 include ':basemodule'
 include ':routertest'
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.absoluteFile,
+        'flutter_library/.android/include_flutter.groovy'))
