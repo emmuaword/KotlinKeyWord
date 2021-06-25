@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp(window.defaultRouteName));
@@ -39,6 +40,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  static const nativeChannel = const MethodChannel('com.example.flutter/native');
+  static const flutterChannel = const MethodChannel('com.example.flutter/flutter');
+
+
 
   void _incrementCounter() {
     setState(() {
