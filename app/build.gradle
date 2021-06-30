@@ -6,6 +6,10 @@ apply plugin: 'kotlin-android'
 android {
 
     defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 2022
+        versionName rootProject.ext.android.versionName
         applicationId "com.weiyi.kotlinkeyword"
     }
     compileOptions {

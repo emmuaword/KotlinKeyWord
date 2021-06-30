@@ -24,10 +24,11 @@ import kotlinx.android.synthetic.main.activity_second.*
  */
 @Route(path = AppMainSecond)
 class SecondActivity : ComponentActivity() {
-    private val flutterEngine = FlutterEngine(this)
+    private lateinit var flutterEngine: FlutterEngine
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+        flutterEngine = FlutterEngine(this)
         createFlutterView()
     }
 

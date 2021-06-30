@@ -3,9 +3,10 @@ apply plugin: 'com.android.application'
 apply from:'../common.gradle'
 android {
     defaultConfig {
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         applicationId "com.weiyi.lock"
     }
-
 }
 
 repositories {
