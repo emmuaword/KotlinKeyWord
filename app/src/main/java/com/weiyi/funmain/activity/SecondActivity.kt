@@ -50,6 +50,9 @@ class SecondActivity : ComponentActivity() {
         // 关键代码，将Flutter页面显示到FlutterView中
         flutterView.attachToFlutterEngine(flutterEngine)
         fl_container.addView(flutterView, lp)
+
+        acceptFlutterInfo()
+
     }
 
 

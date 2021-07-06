@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ThirdActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint=" this is message received" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="跳转flutter页面" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:onClick="printScreenWidth"
+        android:text="打印屏幕宽度" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:onClick="printScreenHeight"
+        android:text="打印屏幕高度" />
+
+
+    <EditText
+        android:id="@+id/et_num1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:hint="num1"
+        android:textColorHint="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@+id/btn_jump_main2" />
+
+
+    <EditText
+        android:id="@+id/et_num2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:hint="num2"
+        android:textColorHint="@android:color/darker_gray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_num1" />
+
+    <Button
+        android:id="@+id/btn_compare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="compare"
+        android:text="比较" />
+
+    <Button
+        android:id="@+id/btn_versionCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="getVersionCode"
+        android:text="获取应用版本号" />
+
+</LinearLayout>

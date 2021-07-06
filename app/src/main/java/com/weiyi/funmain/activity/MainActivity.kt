@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.learn.basemodule.config.*
 import com.learn.routertest.TestBean
 import com.weiyi.funmain.R
-import com.weiyi.funmain.funtest.CompareUtil
+import com.learn.basemodule.utils.CompareUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : ComponentActivity() {
@@ -50,17 +50,11 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    fun compare(view: View) {
-        Toast.makeText(
-            this@MainActivity,
-            "${CompareUtil.compareNumTo(et_num1.text.toString(), et_num2.text.toString())}",
-            Toast.LENGTH_SHORT
-        ).show()
 
-    }
-
-    fun getVersionCode(view: View) {
-        Toast.makeText(this, "${CompareUtil.getVersionCode(this)}", Toast.LENGTH_SHORT).show()
+    fun funTestJump(view: View) {
+        ARouter.getInstance()
+            .build(AppMainThird)
+            .navigation()
     }
 
 }

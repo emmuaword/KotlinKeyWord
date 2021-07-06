@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-void main() => runApp(MyApp(
+void main() =>
+    runApp(MyApp(
       title: "this is Demo",
       routeInfo: window.defaultRouteName,
     ));
@@ -23,16 +24,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _counter = 0;
   static const nativeChannel =
-      const MethodChannel('com.example.flutter/native');
+  const MethodChannel('com.example.flutter/native');
   static const flutterChannel =
-      const MethodChannel('com.example.flutter/flutter');
+  const MethodChannel('com.example.flutter/flutter');
 
   void _incrementCounter() {
     setState(() {
       _counter++;
       Fluttertoast.showToast(msg: "button has been clicked,count is $_counter "
-          // "\t routeInfo:${widget.routeInfo}"
-          );
+        // "\t routeInfo:${widget.routeInfo}"
+      );
     });
   }
 
@@ -40,6 +41,21 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       widget.message = val;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future<dynamic> handler(MethodCall call) async {
+      switch (call.method) {
+        case 'onActivityResult':
+          onDataChange(call.arguments['message']);
+          print('1234' + call.arguments['message']);
+          break;
+      }
+    }
+
+    flutterChannel.setMethodCallHandler(handler);
   }
 
   @override
@@ -62,16 +78,35 @@ class _MyAppState extends State<MyApp> {
                 ),
                 Text(
                   '$_counter',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .headline4,
                 ),
+                ElevatedButton(
+
+                    style: ButtonStyle(),
+                    onPressed: () {
+                      _returnLastNativePage(nativeChannel);
+                    },
+                    child: Text(
+                      'open last native activity',
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .headline4,
+                    )),
                 ElevatedButton(
                     style: null,
                     onPressed: () {
-                      Fluttertoast.showToast(msg: "click the button");
+                      _openNextNativePage(nativeChannel);
                     },
                     child: Text(
-                      '$_counter',
-                      style: Theme.of(context).textTheme.headline4,
+                      'open next native activity',
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .headline4,
                     ))
               ],
             ),
@@ -83,4 +118,20 @@ class _MyAppState extends State<MyApp> {
           ), // This trailing comma makes auto-formatting nicer for build methods.
         ));
   }
+
+
+  Future<Null> _returnLastNativePage(MethodChannel channel) async {
+    Map<String, dynamic> para = {'message': '嗨，本文案来自Flutter页面，回到第一个原生页面将看到我'};
+    final String result = await channel.invokeMethod('backFirstNative', para);
+    print('这是在flutter中打印的' + result);
+  }
+
+
+  Future<Null> _openNextNativePage(MethodChannel channel) async {
+    Map<String, dynamic> para = {'message': '嗨，本文案来自Flutter页面，打开第二个原生页面将看到我'};
+    final String result =
+    await channel.invokeMethod('openSecondNative', para);
+    print('这是在flutter中打印的' + result);
+  }
+
 }

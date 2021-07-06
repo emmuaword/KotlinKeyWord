@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.ThirdActivity"></activity>
+
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
@@ -17,12 +19,13 @@
             android:name="design_height_in_dp"
             android:value="667" />
 
-        <activity android:name=".activity.WebviewActivity"></activity>
+        <activity android:name=".activity.WebviewActivity" />
         <activity android:name=".activity.SchemeFilterActivity">
             <intent-filter>
                 <data
                     android:host="com.learn.route"
                     android:scheme="arouter" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.BROWSABLE" />

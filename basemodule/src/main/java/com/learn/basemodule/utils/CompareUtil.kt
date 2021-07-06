@@ -1,4 +1,4 @@
-package com.weiyi.funmain.funtest
+package com.learn.basemodule.utils
 
 import android.content.Context
 import android.text.TextUtils
