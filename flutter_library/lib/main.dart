@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-void main() =>
-    runApp(MyApp(
+void main() => runApp(MyApp(
       title: "this is Demo",
       routeInfo: window.defaultRouteName,
     ));
@@ -18,22 +17,25 @@ class MyApp extends StatefulWidget {
   final String routeInfo;
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyAppState createState() {
+    if (routeInfo == "route1") {
+      return _MyAppState();
+    }
+    return null;
+  }
 }
 
 class _MyAppState extends State<MyApp> {
   int _counter = 0;
-  static const nativeChannel =
-  const MethodChannel('com.example.flutter/native');
-  static const flutterChannel =
-  const MethodChannel('com.example.flutter/flutter');
+  static const nativeChannel = const MethodChannel('com.tw.flutter/toNative');
+  static const flutterChannel = const MethodChannel('com.tw.flutter/toFlutter');
 
   void _incrementCounter() {
     setState(() {
       _counter++;
       Fluttertoast.showToast(msg: "button has been clicked,count is $_counter "
-        // "\t routeInfo:${widget.routeInfo}"
-      );
+          // "\t routeInfo:${widget.routeInfo}"
+          );
     });
   }
 
@@ -54,7 +56,6 @@ class _MyAppState extends State<MyApp> {
           break;
       }
     }
-
     flutterChannel.setMethodCallHandler(handler);
   }
 
@@ -78,36 +79,32 @@ class _MyAppState extends State<MyApp> {
                 ),
                 Text(
                   '$_counter',
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .headline4,
+                  style: Theme.of(context).textTheme.headline4,
                 ),
-                ElevatedButton(
-
-                    style: ButtonStyle(),
-                    onPressed: () {
-                      _returnLastNativePage(nativeChannel);
-                    },
-                    child: Text(
-                      'open last native activity',
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headline4,
-                    )),
-                ElevatedButton(
-                    style: null,
-                    onPressed: () {
-                      _openNextNativePage(nativeChannel);
-                    },
-                    child: Text(
-                      'open next native activity',
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headline4,
-                    ))
+                Container(
+                  margin: EdgeInsets.fromLTRB(60, 20, 60, 20),
+                  child: ElevatedButton(
+                      style: ButtonStyle(),
+                      onPressed: () {
+                        _returnLastNativePage(nativeChannel);
+                      },
+                      child: Text(
+                        'open last native activity',
+                        style: Theme.of(context).textTheme.headline4,
+                      )),
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(60, 20, 60, 20),
+                  child: ElevatedButton(
+                      style: null,
+                      onPressed: () {
+                        _openNextNativePage(nativeChannel);
+                      },
+                      child: Text(
+                        'open next native activity',
+                        style: Theme.of(context).textTheme.headline4,
+                      )),
+                )
               ],
             ),
           ),
@@ -119,19 +116,17 @@ class _MyAppState extends State<MyApp> {
         ));
   }
 
-
   Future<Null> _returnLastNativePage(MethodChannel channel) async {
-    Map<String, dynamic> para = {'message': '嗨，本文案来自Flutter页面，回到第一个原生页面将看到我'};
-    final String result = await channel.invokeMethod('backFirstNative', para);
+    Map<String, dynamic> para = {
+      'message': '嗨，本文案来自Flutter页面，回到Flutter承载页面将看到我'
+    };
+    final String result = await channel.invokeMethod('backSecondNative', para);
     print('这是在flutter中打印的' + result);
   }
-
 
   Future<Null> _openNextNativePage(MethodChannel channel) async {
     Map<String, dynamic> para = {'message': '嗨，本文案来自Flutter页面，打开第二个原生页面将看到我'};
-    final String result =
-    await channel.invokeMethod('openSecondNative', para);
+    final String result = await channel.invokeMethod('openNextNative', para);
     print('这是在flutter中打印的' + result);
   }
-
 }

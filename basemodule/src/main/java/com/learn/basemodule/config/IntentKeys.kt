@@ -19,7 +19,7 @@ const val URL = "url"
 const val CUSTOM_OBJ = "custom_object"
 
 //Flutter向Native发消息
-const val CHANNEL_TO_NATIVE = "com.tw.flutter/native"
+const val CHANNEL_TO_NATIVE = "com.tw.flutter/toNative"
 
 //Native向Flutter发消息
-const val CHANNEL_TO_FLUTTER = "com.tw.flutter/flutter"
+const val CHANNEL_TO_FLUTTER = "com.tw.flutter/toFlutter"

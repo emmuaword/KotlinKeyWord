@@ -9,5 +9,6 @@ include ':routertest'
 
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
+        //此处只需要找到相应flutter模块目录下include_flutter文件即可
         settingsDir.absoluteFile,
         'flutter_library/.android/include_flutter.groovy'))
